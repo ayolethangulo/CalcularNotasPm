@@ -33,7 +33,7 @@ public class Materias extends AppCompatActivity {
         setContentView(R.layout.activity_materias);
 
         daoM = new daoMateria(this);
-        listaMateria = daoM.verTodos();
+        listaMateria = daoM.verTodosM();
         adaptador = new AdaptadorMateria(this, listaMateria,daoM);
         listMateria = findViewById(R.id.listaMateria);
         btnAbrirDialogoM = findViewById(R.id.btnAbrirDialogoM);
@@ -66,8 +66,8 @@ public class Materias extends AppCompatActivity {
                             //aqui puse para ver si funciona
                             //lista = new ArrayList<Contacto>();
                             m = new Materia(nombreMateria.getText().toString());
-                            daoM.insertar(m);
-                            listaMateria=daoM.verTodos();
+                            daoM.insertarM(m);
+                            listaMateria=daoM.verTodosM();
                             adaptador.notifyDataSetChanged();
                             dialogo.dismiss();
                         } catch (Exception e) {

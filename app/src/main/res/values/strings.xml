@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CalcularNotasPm</string>
+    <string-array name="cortes">
+        <item>Selecciona un corte</item>
+        <item>Primer corte</item>
+        <item>Segundo corte</item>
+        <item>Tercer corte</item>
+    </string-array>
 </resources>

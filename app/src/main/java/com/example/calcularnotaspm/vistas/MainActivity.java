@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
         btnAbrirActividades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //aqui va abrir vista de actividades
+                Intent intent = new Intent(MainActivity.this, Notas_Activity.class);
+                startActivity(intent);
             }
         });
     }

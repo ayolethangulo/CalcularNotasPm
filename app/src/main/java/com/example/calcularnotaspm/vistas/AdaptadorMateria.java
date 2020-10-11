@@ -71,7 +71,6 @@ public class AdaptadorMateria extends BaseAdapter {
         TextView nombreMateria = (TextView)v.findViewById(R.id.txtNombreMateria);
         Button btnEditarM = (Button)v.findViewById(R.id.btnEditarM);
         Button btnEliminarM = (Button)v.findViewById(R.id.btnEliminarM);
-       // idMateria.setText(m.getIdMateria());
         nombreMateria.setText(m.getNombreMateria());
         btnEditarM.setTag(position);
         btnEliminarM.setTag(position);
@@ -97,8 +96,8 @@ public class AdaptadorMateria extends BaseAdapter {
                     public void onClick(View view) {
                         try {
                             m = new Materia(getIdMateria(),nombreMateria.getText().toString());
-                            dao.editar(m);
-                            listaMateria=dao.verTodos();
+                            dao.editarM(m);
+                            listaMateria=dao.verTodosM();
                             notifyDataSetChanged();
                             dialogo.dismiss();
                         } catch (Exception e) {
@@ -130,8 +129,8 @@ public class AdaptadorMateria extends BaseAdapter {
                 del.setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
-                        dao.eliminar(getIdMateria());
-                        listaMateria=dao.verTodos();
+                        dao.eliminarM(getIdMateria());
+                        listaMateria=dao.verTodosM();
                         notifyDataSetChanged();
                     }
                 });
