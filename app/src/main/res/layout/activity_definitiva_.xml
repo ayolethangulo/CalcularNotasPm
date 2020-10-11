@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <Spinner
+        android:id="@+id/spnDefinitivaXMateria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" />
+
+    <Spinner
+        android:id="@+id/spnDefinitivaXCorte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:entries="@array/cortes" />
+    <ListView
+        android:id="@+id/listaActividadesxMateria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0.2">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/txtDefinitivaxcorte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Definitiva del corte" />
+
+    <TextView
+        android:id="@+id/txtDefinitivaxmateria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Definitiva de la materia" />
+
+</LinearLayout>
