@@ -21,7 +21,7 @@ public class Definitiva_Activity extends AppCompatActivity {
 
     Spinner spnlistMateria, spnlistCorte;
     ListView listActividades;
-    TextView definitaxMateria, definitivaxCorte;
+    TextView definitaxMateria, definitivaCorte1, definitivaCorte2, definitivaCorte3;
     daoMateria daoM;
     AdaptadorActividades adaptadorActividades;
     ArrayList<Nota_Actividad> listaActividadesxMateria, listaxCorte;
@@ -36,8 +36,11 @@ public class Definitiva_Activity extends AppCompatActivity {
         spnlistMateria = (Spinner) findViewById(R.id.spnDefinitivaXMateria);
         spnlistCorte = (Spinner) findViewById(R.id.spnDefinitivaXCorte);
         listActividades = (ListView) findViewById(R.id.listaActividadesxMateria);
+        definitivaCorte1 = (TextView) findViewById(R.id.txtDefinitivaxcorte1);
+        definitivaCorte2 = (TextView) findViewById(R.id.txtDefinitivacorte2);
+        definitivaCorte3 = (TextView) findViewById(R.id.txtDefinitivacorte3);
         definitaxMateria = (TextView) findViewById(R.id.txtDefinitivaxmateria);
-        definitivaxCorte = (TextView) findViewById(R.id.txtDefinitivaxcorte);
+
 
         daoM = new daoMateria(this);
         listaMaterias =daoM.verTodosM();
@@ -88,6 +91,7 @@ public class Definitiva_Activity extends AppCompatActivity {
     }
     private void filtrarlista(){
         listaActividadesxMateria = daoM.verTodosxMateriaN(Integer.parseInt(spnlistMateria.getSelectedItem().toString()));
+        calcularDefinitivaMateria(listaActividadesxMateria);
         adaptadorActividades = new AdaptadorActividades(Definitiva_Activity.this, listaActividadesxMateria,daoM);
         listActividades = findViewById(R.id.listaActividadesxMateria);
         listActividades.setAdapter(adaptadorActividades);
@@ -110,5 +114,22 @@ public class Definitiva_Activity extends AppCompatActivity {
         adaptadorActividades = new AdaptadorActividades(Definitiva_Activity.this, listaxCorte,daoM);
         listActividades = findViewById(R.id.listaActividadesxMateria);
         listActividades.setAdapter(adaptadorActividades);
+    }
+    private void calcularDefinitivaMateria(ArrayList<Nota_Actividad> lista) {
+        float corte1=0, corte2=0, corte3=0, total = 0;
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNumCorte() == 1) {
+                corte1 = corte1 + lista.get(i).getValor2();
+            }else if(lista.get(i).getNumCorte() == 2){
+                corte2 = corte2 + lista.get(i).getValor2();
+            }else {
+                corte3 = corte3 + lista.get(i).getValor2();
+            }
+        }
+        total = (float) ((corte1*0.3)+(corte2*0.3)+(corte3)*0.4);
+        definitivaCorte1.setText(String.valueOf(corte1));
+        definitivaCorte2.setText(String.valueOf(corte2));
+        definitivaCorte3.setText(String.valueOf(corte3));
+        definitaxMateria.setText(String.valueOf(total));
     }
 }

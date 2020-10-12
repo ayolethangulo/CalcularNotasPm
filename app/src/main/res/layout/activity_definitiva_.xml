@@ -38,10 +38,22 @@
     </ListView>
 
     <TextView
-        android:id="@+id/txtDefinitivaxcorte"
+        android:id="@+id/txtDefinitivaxcorte1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Definitiva del corte" />
+        android:text="Definitiva del corte 1" />
+
+    <TextView
+        android:id="@+id/txtDefinitivacorte2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Definitiva corte 2" />
+
+    <TextView
+        android:id="@+id/txtDefinitivacorte3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Definitiva corte 3" />
 
     <TextView
         android:id="@+id/txtDefinitivaxmateria"

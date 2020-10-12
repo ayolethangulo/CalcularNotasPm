@@ -94,7 +94,7 @@ public class Nota_Actividad {
         this.idMateria = idMateria;
     }
 
-    public double getValor2() {
+    public float getValor2() {
         return (this.valor*this.porcentaje);
     }
 }
