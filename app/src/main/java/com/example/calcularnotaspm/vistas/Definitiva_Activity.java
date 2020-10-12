@@ -21,7 +21,7 @@ public class Definitiva_Activity extends AppCompatActivity {
 
     Spinner spnlistMateria, spnlistCorte;
     ListView listActividades;
-    TextView definitaxMateria, definitivaCorte1, definitivaCorte2, definitivaCorte3;
+    TextView definitaxMateria, definitivaCorte1, definitivaCorte2, definitivaCorte3, nombreMateriaS;
     daoMateria daoM;
     AdaptadorActividades adaptadorActividades;
     ArrayList<Nota_Actividad> listaActividadesxMateria, listaxCorte;
@@ -34,6 +34,7 @@ public class Definitiva_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_definitiva_);
 
         spnlistMateria = (Spinner) findViewById(R.id.spnDefinitivaXMateria);
+        nombreMateriaS = (TextView)findViewById(R.id.txtnombreMateriaSelccion);
         spnlistCorte = (Spinner) findViewById(R.id.spnDefinitivaXCorte);
         listActividades = (ListView) findViewById(R.id.listaActividadesxMateria);
         definitivaCorte1 = (TextView) findViewById(R.id.txtDefinitivaxcorte1);
@@ -86,11 +87,14 @@ public class Definitiva_Activity extends AppCompatActivity {
         listaSpinnerMaterias.add("Seleccione una materia");
 
         for (int i=0;i<listaMaterias.size();i++){
-            listaSpinnerMaterias.add(String.valueOf(listaMaterias.get(i).getIdMateria()));
+            listaSpinnerMaterias.add(String.valueOf(listaMaterias.get(i).getIdMateria())+";"+listaMaterias.get(i).getNombreMateria());
         }
     }
     private void filtrarlista(){
-        listaActividadesxMateria = daoM.verTodosxMateriaN(Integer.parseInt(spnlistMateria.getSelectedItem().toString()));
+        String id = spnlistMateria.getSelectedItem().toString();
+        String[] parts = id.split(";");
+        int codigo = Integer.parseInt(parts[0]);
+        listaActividadesxMateria = daoM.verTodosxMateriaN(codigo);
         calcularDefinitivaMateria(listaActividadesxMateria);
         adaptadorActividades = new AdaptadorActividades(Definitiva_Activity.this, listaActividadesxMateria,daoM);
         listActividades = findViewById(R.id.listaActividadesxMateria);

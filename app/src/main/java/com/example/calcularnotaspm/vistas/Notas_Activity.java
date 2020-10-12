@@ -81,12 +81,15 @@ public class Notas_Activity extends AppCompatActivity {
         btnAgregarActividad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String id = spnMaterias.getSelectedItem().toString();
+                String[] parts = id.split(";");
+                int codigo = Integer.parseInt(parts[0]);
                 daoM = new daoMateria(Notas_Activity.this);
 
                 n = new Nota_Actividad(nombreActividad.getText().toString(),
                         Float.parseFloat(porcentaje.getText().toString()),
                         Float.parseFloat(valor.getText().toString()),
-                        numCorte, Integer.parseInt(spnMaterias.getSelectedItem().toString()));
+                        numCorte, codigo);
                 daoM.insertarN(n);
                 LimpiarCampos();
             }
@@ -115,7 +118,7 @@ public class Notas_Activity extends AppCompatActivity {
         listaSpinnerMaterias.add("Seleccione una materia");
 
         for (int i=0;i<listaMaterias.size();i++){
-            listaSpinnerMaterias.add(String.valueOf(listaMaterias.get(i).getIdMateria()));
+            listaSpinnerMaterias.add(String.valueOf(listaMaterias.get(i).getIdMateria())+";"+listaMaterias.get(i).getNombreMateria());
         }
     }
 }
