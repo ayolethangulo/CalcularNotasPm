@@ -8,9 +8,20 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtDNombreM"
+        android:id="@+id/txtDnombreActividad"
         android:hint="Nombre"/>
-
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDValorA"
+        android:inputType="number"
+        android:hint="Valor"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDPorcentajeA"
+        android:inputType="number"
+        android:hint="Porcentaje"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,14 +31,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Agregar"
-            android:id="@+id/btnAgregarMateria"
+            android:id="@+id/dA_agregar"
             />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cancelar"
-            android:id="@+id/btnD_cancelar"
+            android:id="@+id/dA_cancelar"
             />
     </LinearLayout>
 

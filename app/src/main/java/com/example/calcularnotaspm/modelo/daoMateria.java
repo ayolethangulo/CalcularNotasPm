@@ -121,6 +121,23 @@ public class daoMateria extends SQLiteOpenHelper {
         }
         return listaActividades;
     }
+    public ArrayList<Nota_Actividad> verTodosxMateriaN(int idMateria){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        listaActividades = new ArrayList<Nota_Actividad>();
+        listaActividades.clear();
+        Cursor cursor = db.rawQuery("select * from "+table2+" where idMateria = "+idMateria, null);
+        if (cursor != null && cursor.getCount()>0){
+            cursor.moveToFirst();
+            do {
+                listaActividades.add(new Nota_Actividad(cursor.getInt(0),
+                        cursor.getString(1), cursor.getFloat(2),
+                        cursor.getFloat(3), cursor.getInt(4),
+                        cursor.getInt(5), cursor.getFloat(6)));
+            }while(cursor.moveToNext());
+        }
+        return listaActividades;
+    }
     public boolean eliminarN(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
 

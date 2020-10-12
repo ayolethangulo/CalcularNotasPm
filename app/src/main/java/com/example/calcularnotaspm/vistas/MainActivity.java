@@ -11,8 +11,7 @@ import com.example.calcularnotaspm.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnAbrirMateria;
-    Button btnAbrirActividades;
+    Button btnAbrirMateria, btnAbrirActividades, btnAbrirDefinitiva;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnAbrirMateria = findViewById(R.id.btnMateria);
         btnAbrirActividades = findViewById(R.id.btnActividades);
+        btnAbrirDefinitiva = findViewById(R.id.btnDefinitiva);
 
         btnAbrirMateria.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Notas_Activity.class);
+                startActivity(intent);
+            }
+        });
+        btnAbrirDefinitiva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Definitiva_Activity.class);
                 startActivity(intent);
             }
         });

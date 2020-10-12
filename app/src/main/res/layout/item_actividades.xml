@@ -16,7 +16,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtActividadDefinitiva"
+                android:id="@+id/txtActividadI"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Actividad" />
@@ -25,23 +25,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
+            android:layout_weight="0.9"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtValorActividad"
+                android:id="@+id/txtValorActividadI"
                 android:text="Valor"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
+            android:layout_weight="0.9"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtPorcentajeActividad"
+                android:id="@+id/txtPorcentajeActividadI"
                 android:text="Porcentaje"/>
         </LinearLayout>
 
@@ -49,13 +49,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:id="@+id/btnEditarM"
+            android:id="@+id/btnEditarI"
             android:background="@mipmap/edit" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:id="@+id/btnEliminarM"
+            android:id="@+id/btnEliminarI"
             android:background="@mipmap/delete"/>
     </LinearLayout>
 </LinearLayout>

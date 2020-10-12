@@ -20,6 +20,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:entries="@array/cortes" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actividad-------------Valor------------Porcentaje" />
+
     <ListView
         android:id="@+id/listaActividadesxMateria"
         android:layout_width="match_parent"

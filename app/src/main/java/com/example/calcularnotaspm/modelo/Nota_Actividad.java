@@ -12,6 +12,13 @@ public class Nota_Actividad {
     public Nota_Actividad() {
     }
 
+    public Nota_Actividad(int id, String nombreActividad, float porcentaje, float valor) {
+        this.id = id;
+        this.nombreActividad = nombreActividad;
+        this.porcentaje = porcentaje;
+        this.valor = valor;
+    }
+
     public Nota_Actividad(int id, String nombreActividad, float porcentaje, float valor, int numCorte, int idMateria, float valor2) {
         this.id = id;
         this.nombreActividad = nombreActividad;
