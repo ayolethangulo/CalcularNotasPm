@@ -24,10 +24,10 @@ public class Definitiva_Activity extends AppCompatActivity {
     TextView definitaxMateria, definitivaxCorte;
     daoMateria daoM;
     AdaptadorActividades adaptadorActividades;
-    ArrayList<Nota_Actividad> listaActividadesxMateria;
+    ArrayList<Nota_Actividad> listaActividadesxMateria, listaxCorte;
     ArrayList<Materia> listaMaterias;
     ArrayList<String> listaSpinnerMaterias;
-    int bandera = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +64,19 @@ public class Definitiva_Activity extends AppCompatActivity {
 
             }
         });
+        spnlistCorte.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position>0){
+                    filtrarListaxCorte();
+                }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
     private void obtenerLista() {
         listaSpinnerMaterias = new ArrayList<String>();
@@ -77,6 +89,25 @@ public class Definitiva_Activity extends AppCompatActivity {
     private void filtrarlista(){
         listaActividadesxMateria = daoM.verTodosxMateriaN(Integer.parseInt(spnlistMateria.getSelectedItem().toString()));
         adaptadorActividades = new AdaptadorActividades(Definitiva_Activity.this, listaActividadesxMateria,daoM);
+        listActividades = findViewById(R.id.listaActividadesxMateria);
+        listActividades.setAdapter(adaptadorActividades);
+    }
+    private void filtrarListaxCorte(){
+        int corte = 0;
+        if (spnlistCorte.getSelectedItem().toString().equals("Primer corte")){
+            corte = 1;
+        }else if (spnlistCorte.getSelectedItem().toString().equals("Segundo corte")){
+            corte = 2;
+        }else {
+            corte=3;
+        }
+        listaxCorte = new ArrayList<Nota_Actividad>();
+        for (int i=0;i<listaActividadesxMateria.size();i++){
+           if (listaActividadesxMateria.get(i).getNumCorte() == corte){
+               listaxCorte.add(listaActividadesxMateria.get(i));
+           }
+        }
+        adaptadorActividades = new AdaptadorActividades(Definitiva_Activity.this, listaxCorte,daoM);
         listActividades = findViewById(R.id.listaActividadesxMateria);
         listActividades.setAdapter(adaptadorActividades);
     }
